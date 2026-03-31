@@ -259,7 +259,7 @@ function initPersonModal() {
             // Basic Info extraction
             const imgEl = card.querySelector('img');
             const nameEl = card.querySelector('h2, h4');
-            const jobTitleEl = card.querySelector('p.text-muted');
+            const jobTitleEl = card.querySelector('.person-role') || card.querySelector('p.text-muted');
             const emailEl = card.querySelector('a[href^="mailto:"]');
             
             // Extract socials: 'a' tags that aren't mailto, inside a flex container 
