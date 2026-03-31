@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Name-to-Peptide Studio</title>
+  <meta name="description"
+    content="Turn a name or surname into a peptide sequence, molecular formula, 2D structure formula, and 3D model." />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./vendor/rdkit/RDKit_minimal.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/molstar@3.40.1/build/viewer/molstar.css" />
+  <script src="https://cdn.jsdelivr.net/npm/molstar@3.40.1/build/viewer/molstar.js" defer></script>
+  <script type="module" src="./app.js" defer></script>
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Peptide Playground</p>
+        <h1>Name-to-Peptide Studio</h1>
+        <p class="hero-text">
+          Enter a name or surname and this app will map each letter to a
+          standard amino-acid code, calculate the peptide formula, and render
+          a 2D structure formula and 3D preview in the browser.
+        </p>
+
+        <div class="hero-callout">
+          <span class="callout-label">Fallback Rule</span>
+          <p>
+            If a letter is not a standard one-letter amino-acid code, the app
+            swaps it for the closest standard code alphabetically.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel control-panel">
+        <div class="panel-heading">
+          <h2>Generate a Peptide</h2>
+          <p>Names with spaces, accents, and punctuation are cleaned automatically.</p>
+        </div>
+
+        <form id="peptide-form" class="generator-form">
+          <label class="field-label" for="name-input">Name or surname</label>
+          <div class="input-row">
+            <input id="name-input" name="name" type="text" maxlength="60" autocomplete="off"
+              placeholder="Example: Gokcel, Curie, or Istanbul" />
+            <button type="submit" class="primary-button">Build Peptide</button>
+          </div>
+
+          <div class="ph-stack">
+            <label class="field-label" for="ph-input">pH for average charge</label>
+            <input id="ph-input" name="ph" type="number" min="0" max="14" step="0.01" value="7.00" inputmode="decimal"
+              placeholder="7.00" />
+            <p class="field-helper">
+              Uses your pKa table and includes the N-terminus, C-terminus,
+              and ionizable side chains.
+            </p>
+          </div>
+        </form>
+
+        <div class="quick-examples" aria-label="Example inputs">
+          <button type="button" class="ghost-chip" data-sample="Peptide">Peptide</button>
+          <button type="button" class="ghost-chip" data-sample="Biochem">Biochem</button>
+          <button type="button" class="ghost-chip" data-sample="Istanbul">Istanbul</button>
+        </div>
+
+        <div id="status-banner" class="status-banner" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="panel summary-panel">
+        <div class="panel-heading">
+          <h2>Sequence Summary</h2>
+          <p>The peptide and its formula update each time you generate a new sequence.</p>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card">
+            <span class="metric-label">Length</span>
+            <strong id="length-value">0 residues</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Substitutions</span>
+            <strong id="substitution-value">0</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Molecular Weight</span>
+            <strong id="mass-value">0.00 Da</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Average Charge</span>
+            <strong id="charge-value">0.00 @ pH 7.00</strong>
+          </article>
+        </div>
+
+        <div class="sequence-block">
+          <div>
+            <span class="block-label">Normalized input</span>
+            <p id="normalized-value" class="block-value">No sequence yet</p>
+          </div>
+          <div>
+            <span class="block-label">One-letter peptide</span>
+            <p id="sequence-value" class="block-value sequence-text">-</p>
+          </div>
+          <div>
+            <span class="block-label">Three-letter peptide</span>
+            <p id="three-letter-value" class="block-value">-</p>
+          </div>
+          <div>
+            <span class="block-label">Chemical formula</span>
+            <p id="formula-value" class="block-value">-</p>
+          </div>
+        </div>
+
+        <div>
+          <span class="block-label">Amino acids used</span>
+          <div id="mapping-grid" class="mapping-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="panel structure-panel">
+        <div class="viewer-header">
+          <div class="panel-heading">
+            <h2>2D Structure Formula</h2>
+            <p>Drawn from the peptide sequence as a standard skeletal structure diagram.</p>
+          </div>
+          <div class="viewer-actions">
+            <button id="download-structure-button" type="button" class="secondary-button" disabled>
+              Download SVG
+            </button>
+          </div>
+        </div>
+
+        <div id="structure-viewer" class="structure-canvas">
+          <div class="viewer-placeholder">
+            Generate a peptide to see the 2D structure formula here.
+          </div>
+        </div>
+
+        <p class="viewer-note">
+          This is a normal peptide line drawing generated from the sequence.
+          It is meant to show the structural formula, not conformational stability.
+        </p>
+      </section>
+
+      <section class="panel viewer-panel">
+        <div class="viewer-header">
+          <div class="panel-heading">
+            <h2>3D Preview</h2>
+            <p>Loads an RDKit-generated molfile so bond connectivity comes from the peptide chemistry instead of guessed distances.
+            </p>
+          </div>
+          <div class="viewer-actions">
+            <button id="download-button" type="button" class="secondary-button" disabled>
+              Download MOL
+            </button>
+          </div>
+        </div>
+
+        <div class="prediction-grid">
+          <div class="prediction-card">
+            <span class="block-label">Model source</span>
+            <p id="model-source" class="block-value">Waiting for sequence</p>
+          </div>
+          <div class="prediction-card">
+            <span class="block-label">Bonding</span>
+            <p id="confidence-value" class="block-value">-</p>
+          </div>
+        </div>
+
+        <div class="element-legend-card">
+          <span class="block-label">3D Color Legend</span>
+          <div id="element-legend" class="element-legend" aria-live="polite">
+            <span class="legend-note">Generate a peptide to see which colors match which elements.</span>
+          </div>
+        </div>
+
+        <div id="viewer" class="viewer-canvas">
+          <div class="viewer-placeholder">
+            Generate a peptide to see the modeled 3D structure here.
+          </div>
+        </div>
+
+        <p class="viewer-note">
+          This preview uses RDKit-generated atom and bond data for correct connectivity.
+          The coordinates come from an autogenerated layout, so it is a chemistry study view,
+          not a minimized peptide fold or a protein-structure prediction.
+          Hydrogens are not rendered in this 3D viewer so the backbone and side-chain connectivity stay easier to inspect.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

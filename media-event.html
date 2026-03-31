@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Media - HTS Lab</title>
+
+    <meta name="description"
+        content="Photos and media from conferences, symposiums, and other events attended by the HTS Lab team.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition-smooth);
+            background: var(--surface-color);
+            position: relative;
+            cursor: pointer;
+            height: 250px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: var(--transition-smooth);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+
+        <section class="section" style="padding-bottom: 2rem; padding-top: 4rem;">
+            <div class="container text-center">
+                <h1 class="font-bold mb-4">Event Media</h1>
+                <p class="text-lg text-muted max-w-2xl mx-auto" style="max-width: 600px; margin: 0 auto;">
+                    Highlights from academic conferences, presentations, and team gatherings.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-up">
+                        <img src="img/event_photo.png" alt="Conference Event">
+                        <div class="gallery-caption">
+                            <strong>Academic Conference</strong>
+                            <p class="text-sm">Presenting our latest findings at the annual symposium.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-up">
+                        <img src="img/event_photo.png" alt="Poster Session" style="filter: saturate(1.2);">
+                        <div class="gallery-caption">
+                            <strong>Poster Session</strong>
+                            <p class="text-sm">Engaging in deep conversations with peers.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-up">
+                        <img src="img/event_photo.png" alt="Keynote Speech" style="filter: contrast(1.1);">
+                        <div class="gallery-caption">
+                            <strong>Keynote Attendance</strong>
+                            <p class="text-sm">Learning from the leaders in bioengineering.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

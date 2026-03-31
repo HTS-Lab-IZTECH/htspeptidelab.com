@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Publications - HTS Lab</title>
+    <meta name="description" content="Publications from the HTS Lab at IZTECH, led by Dr. Hümeyra Taşkent Sezgin.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+
+    <style>
+        .publication-item {
+            padding: 1.75rem 2rem;
+            background: var(--surface-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1.25rem;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--color-secondary);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .publication-item:nth-child(odd) {
+            border-left-color: var(--color-primary);
+        }
+
+        .pub-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.4rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            color: var(--text-main);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .pub-journal {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.87rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-year-heading {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            border-bottom: 3px solid var(--color-secondary);
+            padding-bottom: 0.5rem;
+            margin: 3rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pub-year-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--color-secondary), transparent);
+        }
+
+        .pub-count {
+            font-size: 0.8rem;
+            color: white;
+            background: var(--color-secondary);
+            border-radius: 20px;
+            padding: 0.15rem 0.6rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+
+        <div class="container section">
+            <h1 class="text-center font-display mb-4">Publications</h1>
+            <p class="text-center text-muted mb-8" style="max-width: 700px; margin: 0 auto 3rem;">
+                Research output by Dr. Hümeyra Taşkent Sezgin.
+                Full list also available on
+                <a href="https://scholar.google.com/citations?user=RpfDfkMAAAAJ&hl=en" target="_blank"
+                    rel="noopener">Google Scholar</a>.
+            </p>
+
+            <!-- 2024 -->
+            <h2 class="pub-year-heading">2024 <span class="pub-count">1</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Valorization of black carrot pomace and pea powder for co-production of
+                    polygalacturonase and pectin lyase</div>
+                <div class="pub-authors">Esen BN, Uzuner S, Taskent Sezgin H</div>
+                <div class="pub-journal">Biomass Conversion and Biorefinery, 2024</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1007/s13399-024-05646-7" target="_blank" rel="noopener"
+                        class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2023 -->
+            <h2 class="pub-year-heading">2023 <span class="pub-count">1</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Diagnosis of ruminant viral diseases with loop-mediated isothermal amplification
+                </div>
+                <div class="pub-authors">Ayaz Kök S, Üstün S, Taşkent Sezgin H</div>
+                <div class="pub-journal">Molecular Biotechnology, 65(8), 1228–1241, 2023</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1007/s12033-023-00674-6" target="_blank" rel="noopener"
+                        class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2013 -->
+            <h2 class="pub-year-heading">2013 <span class="pub-count">1</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Exploiting drug-resistant enzymes as tools to identify thienopyrimidinone
+                    inhibitors of human immunodeficiency virus reverse transcriptase-associated ribonuclease H</div>
+                <div class="pub-authors">Masaoka T, Chung S, Caboni P, Rausch JW, Wilson JA, Taskent-Sezgin H, et al.
+                </div>
+                <div class="pub-journal">Journal of Medicinal Chemistry, 56(13), 5436–5445, 2013</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1021/jm400405z" target="_blank" rel="noopener" class="btn btn-primary"
+                        style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2012 -->
+            <h2 class="pub-year-heading">2012 <span class="pub-count">2</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Multimode, cooperative mechanism of action of allosteric HIV-1 integrase
+                    inhibitors</div>
+                <div class="pub-authors">Kessl JJ, Jena N, Koh Y, Taskent-Sezgin H, Slaughter A, Feng L, et al.</div>
+                <div class="pub-journal">Journal of Biological Chemistry, 287(20), 16801–16811, 2012</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1074/jbc.m112.354373" target="_blank" rel="noopener"
+                        class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">A Polyurethane Surface Modifier: Contrasting Amphiphilic and Contraphilic
+                    Surfaces Driven by Block and Random Soft Blocks Having Trifluoroethoxymethyl and Poly(ethylene
+                    glycol) Side Chains</div>
+                <div class="pub-authors">Zhang W, Fujiwara T, Taşkent H, Zheng Y, Brunson K, Gamble L, et al.</div>
+                <div class="pub-journal">Macromolecular Chemistry and Physics, 213(14), 1415–1434, 2012</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1002/macp.201200075" target="_blank" rel="noopener"
+                        class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2011 -->
+            <h2 class="pub-year-heading">2011 <span class="pub-count">1</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Differential ordering of the protein backbone and side chains during protein
+                    folding revealed by site-specific recombinant infrared probes</div>
+                <div class="pub-authors">Nagarajan S, Taskent-Sezgin H, Parul D, Carrico I, Raleigh DP, Dyer RB</div>
+                <div class="pub-journal">Journal of the American Chemical Society, 133(50), 20335–20340, 2011</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1021/ja2071362" target="_blank" rel="noopener" class="btn btn-primary"
+                        style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2010 -->
+            <h2 class="pub-year-heading">2010 <span class="pub-count">3</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Azidohomoalanine: a conformationally sensitive IR probe of protein folding,
+                    protein structure, and electrostatics</div>
+                <div class="pub-authors">Taskent-Sezgin H, Chung J, Banerjee PS, Nagarajan S, Dyer RB, et al.</div>
+                <div class="pub-journal">Angewandte Chemie, 122(41), 7635–7637, 2010</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1002/ange.201003325" target="_blank" rel="noopener"
+                        class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">Modulation of p-Cyanophenylalanine Fluorescence by Amino Acid Side Chains and
+                    Rational Design of Fluorescence Probes of α-Helix Formation</div>
+                <div class="pub-authors">Taskent-Sezgin H, Marek P, Thomas R, Goldberg D, Chung J, Carrico I, Raleigh DP
+                </div>
+                <div class="pub-journal">Biochemistry, 49(29), 6290–6295, 2010</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1021/bi100932p" target="_blank" rel="noopener" class="btn btn-primary"
+                        style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">Protein Misfolding Diseases: Current and Emerging Principles and Therapies — Role
+                    of posttranslational modifications in amyloid formation</div>
+                <div class="pub-authors">Abedini A, Gupta R, Marek P, Meng F, Raleigh DP, Taskent H, Tracz S</div>
+                <div class="pub-journal">John Wiley &amp; Sons, Inc. (Book Chapter), 2010</div>
+                <div class="pub-links">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=RpfDfkMAAAAJ&citation_for_view=RpfDfkMAAAAJ:eQOLeE2rZwMC"
+                        target="_blank" rel="noopener" class="btn btn-outline"
+                        style="padding: 0.35rem 1rem; font-size: 0.82rem;">Scholar</a>
+                </div>
+            </div>
+
+            <!-- 2009 -->
+            <h2 class="pub-year-heading">2009 <span class="pub-count">2</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Interpretation of p-Cyanophenylalanine Fluorescence in Proteins in Terms of
+                    Solvent Exposure and Contribution of Side-Chain Quenchers: A Combined Experimental and Theoretical
+                    Study</div>
+                <div class="pub-authors">Taskent-Sezgin H, Chung J, Patsalo V, Miyake-Stoner SJ, Miller AM, et al.</div>
+                <div class="pub-journal">Biochemistry, 48(38), 9040–9046, 2009</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1021/bi900938z" target="_blank" rel="noopener" class="btn btn-primary"
+                        style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">Characterization of the Unfolded State Under Native Conditions: A Missing Piece
+                    of the Protein Folding Puzzle</div>
+                <div class="pub-authors">Raleigh DP, Shan B, Meng W, Cho JH, Taskent H</div>
+                <div class="pub-journal">Biophysical Journal, 96(3), 220a, 2009</div>
+                <div class="pub-links">
+                    <a href="https://www.cell.com/biophysj/fulltext/S0006-3495(08)02141-3" target="_blank"
+                        class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2008 -->
+            <h2 class="pub-year-heading">2008 <span class="pub-count">1</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Temperature-dependent Hammond behavior in a protein-folding reaction: Analysis of
+                    transition-state movement and ground-state effects</div>
+                <div class="pub-authors">Taskent H, Cho JH, Raleigh DP</div>
+                <div class="pub-journal">Journal of Molecular Biology, 378(3), 699–706, 2008</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1016/j.jmb.2008.02.024" target="_blank" rel="noopener"
+                        class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2007 -->
+            <h2 class="pub-year-heading">2007 <span class="pub-count">1</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Use of the Novel Fluorescent Amino Acid p-Cyanophenylalanine Offers a Direct
+                    Probe of Hydrophobic Core Formation during the Folding of the N-Terminal Domain of the Ribosomal
+                    Protein L9</div>
+                <div class="pub-authors">Aprilakis KN, Taskent H, Raleigh DP</div>
+                <div class="pub-journal">Biochemistry, 46(43), 12308–12313, 2007</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1021/bi7010674" target="_blank" rel="noopener" class="btn btn-primary"
+                        style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read Article</a>
+                </div>
+            </div>
+
+            <!-- 2004 -->
+            <h2 class="pub-year-heading">2004 <span class="pub-count">1</span></h2>
+
+            <div class="publication-item">
+                <div class="pub-title">Preparation of polymeric nanocapsules with perfluoroalkyl whiskers in
+                    supercritical carbon dioxide</div>
+                <div class="pub-authors">Menceloğlu YZ, Bilgin N, Akbulut Ö, Taşkent H, Gören KB, Erman B</div>
+                <div class="pub-journal">American Chemical Society, 45(2), 593–594, 2004</div>
+                <div class="pub-links">
+                    <a href="https://research.sabanciuniv.edu/id/eprint/1596/1/228_ACS_Nalan.pdf" target="_blank"
+                        rel="noopener" class="btn btn-primary" style="padding: 0.35rem 1rem; font-size: 0.82rem;">Read
+                        Article</a>
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=RpfDfkMAAAAJ&citation_for_view=RpfDfkMAAAAJ:WF5omc3nYNoC"
+                        target="_blank" rel="noopener" class="btn btn-outline"
+                        style="padding: 0.35rem 1rem; font-size: 0.82rem;">Scholar</a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+env/
+venv/
+ENV/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE / Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.tmp
+
+# Custom Local/Test Data
+*.pdb
+*.sdf
+*.mol
+
+# AI Agents / Antigravity Visual Editor
+.agent/
+.antigravity-context.json
+AGENTS.md
+
+# Development / Automation Scripts
+*.py
+update.js
+test_*.js
+read_pdf.js
+tmp_test.html
+node_modules/
+package-lock.json
