@@ -123,6 +123,21 @@ function initMobileMenu() {
             });
         }
     });
+
+    // Sub-dropdown toggle for mobile
+    const subdropdowns = document.querySelectorAll('.dropdown-submenu');
+    subdropdowns.forEach(sub => {
+        const toggle = sub.querySelector('.submenu-toggle');
+        if (toggle) {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Avoid triggering parent dropdown click if any
+                    sub.classList.toggle('active');
+                }
+            });
+        }
+    });
 }
 
 // Scroll Animations to reveal elements smoothly as the user scrolls
@@ -262,15 +277,23 @@ function initPersonModal() {
             const jobTitleEl = card.querySelector('.person-role') || card.querySelector('p.text-muted');
             const emailEl = card.querySelector('a[href^="mailto:"]');
             
-            // Extract socials: 'a' tags that aren't mailto, inside a flex container 
-            const flexDivs = card.querySelectorAll('div[style*="display: flex"]');
+            // Extract socials: look in .person-card-socials first, then fall back to flex divs
             let socialLinks = '';
-            flexDivs.forEach(div => {
-                const nonMailtoA = Array.from(div.querySelectorAll('a:not([href^="mailto:"])'));
+            const socialsDiv = card.querySelector('.person-card-socials');
+            if (socialsDiv) {
+                const nonMailtoA = Array.from(socialsDiv.querySelectorAll('a:not([href^="mailto:"])'));
                 nonMailtoA.forEach(a => {
                     socialLinks += a.outerHTML;
                 });
-            });
+            } else {
+                const flexDivs = card.querySelectorAll('div[style*="display: flex"]');
+                flexDivs.forEach(div => {
+                    const nonMailtoA = Array.from(div.querySelectorAll('a:not([href^="mailto:"])'));
+                    nonMailtoA.forEach(a => {
+                        socialLinks += a.outerHTML;
+                    });
+                });
+            }
             
             // Hidden Data extraction
             const hiddenData = card.querySelector('.person-details-hidden');

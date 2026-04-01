@@ -14,13 +14,15 @@
   --radius-md: 12px;
   --radius-sm: 8px;
   --panel-solid: #ffffff;
-  
+
   position: relative;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(30, 58, 138, 0.1), transparent 32%),
     radial-gradient(circle at 85% 15%, rgba(244, 63, 94, 0.08), transparent 26%),
     linear-gradient(160deg, #f8fafc 0%, #f1f5f9 48%, #e2e8f0 100%);
 }
+
 
 .playground-wrapper::before {
   content: "";
@@ -616,8 +618,9 @@ button:disabled {
 
   .control-panel,
   .summary-panel,
-  .viewer-panel {
-    grid-column: span 1;
+  .viewer-panel,
+  .structure-panel {
+    grid-column: 1 / -1;
   }
 }
 
@@ -629,29 +632,66 @@ button:disabled {
   .hero-copy,
   .hero-callout,
   .panel {
-    padding: 22px;
+    padding: 20px;
   }
 
   .viewer-header {
     flex-direction: column;
   }
 
-  .primary-button,
-  .secondary-button {
+  .primary-button {
     width: 100%;
+    text-align: center;
+  }
+
+  .secondary-button {
+    width: auto;
   }
 
   .metric-grid,
   .prediction-grid,
   .sequence-block {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .viewer-canvas {
-    height: 380px;
+    height: 340px;
+    width: 100%;
+    max-width: 100%;
   }
 
+  /* 2D Structure: constrain SVG to fit within the panel on mobile */
   .structure-canvas {
     min-height: 200px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .structure-canvas svg {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  /* Mapping grid: 1 column on mobile so amino acid cards don't overflow */
+  .mapping-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Summary panel stats in 2 columns */
+  .metric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Prediction grid: 1 column */
+  .prediction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sequence block: 1 column */
+  .sequence-block {
+    grid-template-columns: 1fr;
   }
 }
