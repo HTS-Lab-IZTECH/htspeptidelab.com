@@ -27,7 +27,7 @@ Examples:
 
 ## Charge calculation
 
-The pH-based average charge uses the pKa table you provided and includes:
+The pH-based average charge uses the pKa table provided from Lehninger and includes:
 
 - The N-terminus alpha-amino group of the first residue
 - The C-terminus alpha-carboxyl group of the last residue
