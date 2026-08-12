@@ -56,3 +56,5 @@ read_pdf.js
 tmp_test.html
 node_modules/
 package-lock.json
+
+.vercel
